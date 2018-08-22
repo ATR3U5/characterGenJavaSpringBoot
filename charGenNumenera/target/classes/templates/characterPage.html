@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />-->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800">
+    <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/startPageStyle.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <script src="js/customJS.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="jumbotron text-center accordion" id="accordionExample">
+        <h2 id = "characterSummary" class th:text="'You are a ' + ${descriptor} + ' ' + ${characterClass} + ' who ' + ${focus} + '!'" />
+        <div class="row">
+            <div class ="col-sm-12 col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">General Information</h4>
+
+                            <p class = "info" th:text ="${totalIntellect}"></p>
+                            <p class = "info" th:text ="${totalMight}"></p>
+                            <p class = "info" th:text ="${totalSpeed}"></p>
+                            <p class = "info" th:text ="${totalArmor}"></p>
+                            <hr/>
+                            <p class = "skills text-left" th:text ="${classEdge}"></p>
+                            <p class = "skills text-left" th:text ="${classCypher}"></p>
+                            <p class = "skills text-left" th:text ="${classEffort}"></p>
+                            <hr/>
+                            <p class = "skills text-left" th:text ="${totalContacts}"></p>
+                            <hr/>
+                            <p class = "skills text-left" th:text ="${focusCause}"></p>
+                            <hr/>
+                            <p class = "skills text-center">To-Do</p>
+                            <p class = "skills text-center">Add additional 6 points total to your attribute pools.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class ="col-sm-12 col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Skills & Abilities</h4>
+                        <hr/>
+                        <h5 class="card-text">Skills</h5>
+                        <p class = "skills text-left" th:text ="${totalMeritSkills}"></p>
+                        <p class = "skills text-left" th:text ="${totalProdigySkills}"></p>
+                        <p class = "skills text-left" th:text ="${totalSpecialSkills}"></p>
+                        <p class = "skills text-left" th:text ="${totalTrainedSkills}"></p>
+                        <p></p>
+                        <p class = "skills text-left" th:text ="${descInabilities}"></p>
+                        <hr/>
+                        <h5 class="card-text">Abilities</h5>
+                        <p class = "info" th:text ="${classAbilityType}"></p>
+                        <p class = "abilityType" th:text ="${classAbilityDesc}"></p>
+                        <p></p>
+                        <pre><p class = "uneditSkills text-left" th:text ="${totalAbilities}"></p></pre>
+                        <hr/>
+                        <p class = "skills text-left" th:text ="${focusInfo}"></p>
+                    </div>
+                </div>
+            </div>
+            <div class ="col-sm-12 col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Equipment</h4>
+                        <p class = "skills text-left" th:text ="${totalEquipment}"></p>
+                        <p></p>
+                        <p class = "skills text-left" th:text ="${totalOddity}"></p>
+                        <p class = "skills text-left" th:text ="${totalCypher}"></p>
+                        <p class = "skills text-left" th:text ="${totalMoney}"></p>
+                        <hr/>
+                        <p class = "add text-left">Weapons chosen can be melee or ranged. Ranged Weapons come with [12] ammunition unless otherwise specified.</p>
+                        <p class = "add text-left">If the {Explorer's Pack} gets added to your character more than once, one pack will be replaced by different, useful equipment.</p>
+                        <hr/>
+                        <p class = "skills text-center">To-Do</p>
+                        <p class = "skills text-center">Specify your equipment and ask your GM to determine your cyphers and oddities.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <p class="lead pt-5">
+            <a class = "btn btn-primary btn-lg" role="button" href="/random">NEW CHARACTER</a>
+        </p>
+    </div>
+
+    <div class="row">
+        <div class ="col-sm-12 col-md-4">
+            <div class="card">
+                <div class = "card-body text-center" id="desccard">
+                    <div class = "sub-body">
+                    <a class = "btn btn-primary btn-sm" role="button" id = "descriptorbtn">CLICK TO LOCK</a>
+                    </div>
+                    <hr/>
+                    <h4 class="card-title">Descriptor</h4>
+                    <a data-toggle="collapse" href="#collapseDesc" role="button" aria-expanded="false" aria-controls="collapseDesc" id="descCollapse">
+                    <h5 class="card-text" th:text="${descriptor}"></h5>
+                    </a>
+                    <div class="collapse" id="collapseDesc">
+                        <p></p>
+                    <p class = "info" th:text ="${descAttribute}"></p>
+                    <p class = "info" th:text ="${descMoney}"></p>
+                    <hr/>
+                    <p class = "skills text-left" th:text ="${descSkills}"></p>
+                    <hr/>
+                    <p class = "skills text-left" th:text ="${descConnections}"></p>
+                    <p class = "skills text-left" th:text ="${descInabilities}"></p>
+                    <hr/>
+                    <pre><p class = "uneditSkills text-left" th:text ="${descAbilities}"></p></pre>
+                    <hr/>
+                    <p class = "skills text-left" th:text = "${descEquipment}"></p>
+                    <p class = "skills text-left" th:text ="${descOdd}"></p>
+                    <p class = "skills text-left" th:text ="${descCyphers}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class ="col-sm-12 col-md-4">
+            <div class="card mb-4">
+                <div class = "card-body text-center" id="classcard">
+                    <div class = "sub-body">
+                    <a class = "btn btn-primary btn-sm" role="button" id = "classbtn">CLICK TO LOCK</a>
+                    </div>
+                    <hr/>
+                    <h4 class="card-title">Class</h4>
+                    <a data-toggle="collapse" href="#collapseClass" role="button" aria-expanded="false" aria-controls="collapseClass" id="classCollapse">
+                    <h5 class="card-text" th:text="${characterClass}"></h5>
+                    </a>
+                    <div class="collapse" id="collapseClass">
+                        <p></p>
+                    <p class = "info" th:text ="${classIntellect}"></p>
+                    <p class = "info" th:text ="${classMight}"></p>
+                    <p class = "info" th:text ="${classSpeed}"></p>
+                    <p class = "info" th:text ="${classArmor}"></p>
+                    <hr/>
+                    <p class = "skills text-left" th:text ="${classEdge}"></p>
+                    <p class = "skills text-left" th:text ="${classCypher}"></p>
+                    <p class = "skills text-left" th:text ="${classEffort}"></p>
+                    <p class = "skills text-left" th:text ="${classMoney}"></p>
+                    <p class = "skills text-left" th:text ="${classConnections}"></p>
+                    <hr/>
+                    <p class = "skills text-left" th:text ="${classMerit}"></p>
+                    <p class = "skills text-left" th:text ="${classSkills}"></p>
+                    <hr/>
+                    <p class = "info" th:text ="${classAbilityType}"></p>
+                    <p class = "abilityType" th:text ="${classAbilityDesc}"></p>
+                    <pre><p class = "uneditSkills text-left" th:text ="${classAbilities}"></p></pre>
+                    <hr/>
+                    <p class = "skills text-left" th:text ="${classEquipment}"></p>
+                    <p class = "skills text-left" th:text ="${classOdd}"></p>
+                    <p class = "skills text-left" th:text ="${classCyphers}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class ="col-sm-12 col-md-4">
+            <div class="card mb-4">
+                <div class = "card-body text-center" id="focuscard">
+                    <div class = "sub-body">
+                    <a class = "btn btn-primary btn-sm" role="button" id = "focusbtn">CLICK TO LOCK</a>
+                    </div>
+                    <hr/>
+                    <h4 class="card-title">Focus</h4>
+                    <a data-toggle="collapse" href="#collapseFocus" role="button" aria-expanded="false" aria-controls="collapseFocus" id="focusCollapse">
+                    <h5 class="card-text" th:text="${focus}"></h5>
+                    </a>
+                    <div class="collapse" id="collapseFocus">
+                        <p></p>
+                    <p class = "info" th:text ="${focusIntellect}"></p>
+                    <p class = "info" th:text ="${focusMight}"></p>
+                    <p class = "info" th:text ="${focusSpeed}"></p>
+                    <p class = "info" th:text ="${focusArmor}"></p>
+                    <hr/>
+                    <p class = "skills text-left" th:text ="${focusSkills}"></p>
+                    <hr/>
+                    <pre><p class = "uneditSkills text-left" th:text ="${focusAbilities}"></p></pre>
+                    <hr/>
+                    <p class = "skills text-left" th:text ="${focusEquipment}"></p>
+                    <p class = "skills text-left" th:text ="${focusOdd}"></p>
+                    <p class = "skills text-left" th:text ="${focusCyphers}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
